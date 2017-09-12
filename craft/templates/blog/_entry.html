@@ -2,15 +2,16 @@
 
 {% block content %}
 
-  <article>
+  {% if ( entry.type == 'techBlog' ) %}
+    {% include 'blog/_tech-entry' %}
 
-    <h2>{{ entry.title }}</h2>
+  {% elseif ( entry.type == 'fashionBlog' ) %}
+    {% include 'blog/_fashion-entry' %}
 
-    <p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
+  {% else %}
+    {% include 'blog/_default-entry' %}
 
-    {{ entry.body }}
 
-  </article>
-
+  {% endif %}
 
 {% endblock %}

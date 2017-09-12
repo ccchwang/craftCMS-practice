@@ -1,0 +1,21 @@
+{% set headerImage = entry.headerImage[0] %}
+
+<h1 style="text-decoration: underline">Fashion Section</h1>
+
+<article>
+
+  {# header image #}
+  {% if headerImage %}
+    <img src="{{ headerImage.url }}">
+  {% endif %}
+
+  {# entry title #}
+  <h2>{{ entry.title }}</h2>
+
+  {# posted date #}
+  <p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
+
+  {# page content #}
+  {{ entry.body }}
+
+</article>
