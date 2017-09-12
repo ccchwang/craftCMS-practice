@@ -1,0 +1,25 @@
+@import "base/typography";
+
+
+nav {
+  background: lightblue;
+  display: flex;
+}
+
+main {
+  background: lightyellow;
+}
+
+.blog-preview {
+  p, h4 {
+    margin: 12px 0 0;
+  }
+}
+
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background: lightpink;
+  width: 100%;
+}

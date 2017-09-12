@@ -1,0 +1,20 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+	<h2>Blog Main</h2>
+
+  {% for entry in craft.entries.section('blog').find() %}
+    <article class="blog-preview">
+
+      <h4><a href="{{ entry.url }}">{{ entry.title }}</a></h4>
+
+      <p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
+
+      {{ entry.body }}
+
+    </article>
+	{% endfor %}
+
+
+{% endblock %}

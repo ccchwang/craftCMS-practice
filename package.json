@@ -1,0 +1,11 @@
+{
+  "name": "craftCMS-practice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/chloehwang/craftCMS-practice.git",
+  "author": "Chloe Hwang <c.chloeh@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "blendid": "^4.2.0"
+  }
+}
