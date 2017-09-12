@@ -14,7 +14,7 @@ nav {
 }
 
 main {
-  padding-top: 86px;
+  padding: 100px 50px;
 }
 
 
@@ -39,29 +39,41 @@ main {
   padding: 0 10%;
   margin: 0 auto;
   max-width: 800px;
-
-  .post-date {
-    font-size: 12px;
-  }
-
-  .pull-quote {
-    font-size: 20px;
-    text-align: center;
-  }
-
-  .image-block {
-    border: 1px solid gray;
-    padding: 5px;
-    width: 500px;
-    margin: 0 auto;
-    display: block;
-  }
-
-  .tags {
-    text-align: right;
-  }
 }
 
+.post-date {
+  font-size: 12px;
+}
+
+.pull-quote {
+  font-size: 20px;
+  text-align: center;
+}
+
+.image-block {
+  border: 1px solid gray;
+  padding: 5px;
+  width: 500px;
+  margin: 0 auto;
+  display: block;
+}
+
+.tags {
+  text-align: right;
+}
+
+.fashion-gallery {
+  display: flex;
+  flex-wrap: wrap;
+
+  div {
+    width: 33%;
+
+    img {
+      width: 100%;
+    }
+  }
+}
 
 
 

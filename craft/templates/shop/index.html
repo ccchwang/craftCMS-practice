@@ -1,0 +1,24 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+	<h2>Shop Main</h2>
+
+  <div class="fashion-gallery">
+    {% for entry in craft.entries.section('shop').find() %}
+
+      <div>
+        {# product image #}
+        <img src="{{entry.productImage[0].url}}">
+
+        {# title #}
+        <h4><a href="{{ entry.url }}">{{ entry.title }}</a></h4>
+
+        {# price #}
+        <p>${{ entry.productPrice }}</p>
+      </div>
+
+    {% endfor %}
+  </div>
+
+{% endblock %}

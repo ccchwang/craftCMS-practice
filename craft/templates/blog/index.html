@@ -7,11 +7,13 @@
   {% for entry in craft.entries.section('blog').find() %}
     <article class="blog-preview">
 
-      <h4><a href="{{ entry.url }}">{{ entry.title }}</a></h4>
+      <h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
 
-      <p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
+      <p class="post-date">Posted on {{ entry.postDate.format('F d, Y') }}</p>
 
-      {{ entry.body }}
+      {% set spliceTags =  entry.pageBlocks.type('text').first.text|split('<p>')[1]|split('</p>') %}
+      {% set preview =  spliceTags[0] %}
+     <p>{{ preview|slice(0,170) }}...</p>
 
     </article>
 	{% endfor %}
