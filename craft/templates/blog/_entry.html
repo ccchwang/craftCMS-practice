@@ -1,17 +1,51 @@
+{% set headerImage = entry.headerImage|length ? entry.headerImage[0] : false %}
+
+{# set type of blog #}
+{% if ( entry.type == 'techBlog' ) %}
+  {% set type = 'Tech' %}
+{% elseif ( entry.type == 'fashionBlog' ) %}
+  {% set type = 'Fashion' %}
+{% else %}
+  {% set type = 'Blog' %}
+{% endif %}
+
+
 {% extends "_layout" %}
 
 {% block content %}
+  <h1 class="blog-section-heading">{{ type }} Section</h1>
 
-  {% if ( entry.type == 'techBlog' ) %}
-    {% include 'blog/_tech-entry' %}
+  <article>
 
-  {% elseif ( entry.type == 'fashionBlog' ) %}
-    {% include 'blog/_fashion-entry' %}
+    {# header image #}
+    {% if headerImage %}
+      <div style="background-image: url({{ headerImage.url }})" class="header-image"></div>
+    {% endif %}
 
-  {% else %}
-    {% include 'blog/_default-entry' %}
+    <div class="blog-content">
+      {# entry title #}
+      <h2>{{ entry.title }}</h2>
+
+      {# posted date #}
+      <p class="post-date">Posted on {{ entry.postDate.format('F d, Y') }}</p>
+
+      {# page content #}
+      {% for each in entry.pageBlocks %}
+        {% include "_partials/" ~ each.type with { options: {
+          block: each
+        }} %}
+      {% endfor%}
+
+      {# tags #}
+      <p class="tags">Tags:
+        {% for block in entry.tags %}
+          <a href="">{{ block }}</a>
+        {% endfor%}
+      </p>
+    </div>
+
+  </article>
 
 
-  {% endif %}
 
 {% endblock %}
